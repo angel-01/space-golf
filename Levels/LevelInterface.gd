@@ -55,7 +55,7 @@ func _unhandled_input(event):
 		if  camera_rectangle.has_point(camera.position - event.relative):
 			camera.position -= event.relative
 		
-	if event.is_action_pressed("reset"):
+	if Input.is_action_just_pressed("reset"):
 		reset()
 		
 func reset():

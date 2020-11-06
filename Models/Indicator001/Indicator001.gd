@@ -43,7 +43,7 @@ func _process(delta):
 		scale = initial_scale * force / MAX_FORCE
 
 func _input(event):
-	if event.is_action_pressed("ui_select") and enabled:
+	if Input.is_action_just_pressed("hit") and enabled:
 		emit_signal("hit")
 		hide()
 		enabled = false

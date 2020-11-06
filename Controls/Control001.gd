@@ -1,0 +1,66 @@
+extends Control
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+func _on_RotateLeft_button_down():
+	Input.action_press("ui_up")
+
+
+func _on_RotateLeft_button_up():
+	Input.action_release("ui_up")
+
+
+func _on_RotateRight_button_down():
+	Input.action_press("ui_down")
+
+
+func _on_RotateRight_button_up():
+	Input.action_release("ui_down")
+
+
+func _on_DecreaseForce_button_down():
+	Input.action_press("ui_left")
+
+
+func _on_DecreaseForce_button_up():
+	Input.action_release("ui_left")
+
+
+func _on_IncreaseForce_button_down():
+	Input.action_press("ui_right")
+
+
+func _on_IncreaseForce_button_up():
+	Input.action_release("ui_right")
+
+func _on_Restart_pressed():
+	var action = InputEventAction.new()
+	action.pressed = true
+	action.action = 'reset'
+	Input.parse_input_event(action)
+	action.pressed = false
+	action.action = 'reset'
+	Input.parse_input_event(action)
+
+
+func _on_Hit_pressed():
+	var action = InputEventAction.new()
+	action.pressed = true
+	action.action = 'hit'
+	Input.parse_input_event(action)
+	action.pressed = false
+	action.action = 'hit'
+	Input.parse_input_event(action)
