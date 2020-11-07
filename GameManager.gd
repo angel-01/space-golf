@@ -1,8 +1,6 @@
 extends Node
 
 # TODO:
-# arreglar rangos de arrastre
-# poner ayuda de las teclas para el caso del escritorio
 # hacerle un icono al juego (por alguna razon se ve bien en desktop pero no en android)
 # nivel multi bandera. hay que ganarlas todas y se ira moviendo el punto de partida a la ultima ganada
 # planetas con huecos pasables???

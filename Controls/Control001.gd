@@ -11,6 +11,8 @@ var show = true
 func _ready():
 	if OS.get_name() != 'Android':
 		show = false
+	else:
+		show = true
 	pass # Replace with function body.
 
 
