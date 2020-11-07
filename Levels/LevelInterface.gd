@@ -56,12 +56,16 @@ func _physics_process(delta):
 		
 
 func _unhandled_input(event):
+	
+	if typeof(event) == typeof(InputEventScreenTouch):
+		pass
+	
 	if event.is_action_pressed("mouse_click"):
 		_mouse_captured = true
 	if event.is_action_released("mouse_click"):
 		_mouse_captured = false
 		
-	if _mouse_captured && event is InputEventMouseMotion:
+	if _mouse_captured && event is InputEventMouseMotion or event is InputEventScreenDrag:
 		if  camera_rectangle.has_point(camera_target - event.relative):
 			if not hitted:
 				camera_target -= event.relative

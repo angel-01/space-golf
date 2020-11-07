@@ -1,22 +1,25 @@
 extends Node
 
 # TODO:
+# arreglar rangos de arrastre
+# poner ayuda de las teclas para el caso del escritorio
+# hacerle un icono al juego (por alguna razon se ve bien en desktop pero no en android)
 # nivel multi bandera. hay que ganarlas todas y se ira moviendo el punto de partida a la ultima ganada
 # planetas con huecos pasables???
-# adicionar a la pantalla de victoria los botones de siguiente y de resetear
-# adicionar selector de nivel
-# adicionar menu para salir o reiniciar durante la partida
 
 var current_level = 0
 var levels = [
 	{
-		'path': "res://Levels/Level1.tscn"
+		'path': "res://Levels/Level1.tscn",
+		'image': "res://Art/Level1Image.png"
 	},
 	{
-		'path': "res://Levels/Level2.tscn"
+		'path': "res://Levels/Level2.tscn",
+		'image': "res://Art/Level2Image.png"
 	},
 	{
-		'path': "res://Levels/Level3.tscn"
+		'path': "res://Levels/Level3.tscn",
+		'image': "res://Art/Level3Image.png"
 	},
 ]
 

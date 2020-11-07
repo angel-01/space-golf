@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var level_selector = preload("res://Menus/LevelSelector.tscn")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_Start_pressed():
-	GameManager.start_level()
+	get_tree().change_scene_to(level_selector)

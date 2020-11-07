@@ -34,46 +34,46 @@ texture = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 262.0
-margin_top = 96.0
+margin_top = 109.0
 margin_right = 762.0
-margin_bottom = 504.0
+margin_bottom = 491.0
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 margin_right = 500.0
-margin_bottom = 220.0
+margin_bottom = 198.0
 texture = ExtResource( 1 )
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 224.0
+margin_top = 202.0
 margin_right = 500.0
-margin_bottom = 304.0
+margin_bottom = 278.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CenterContainer"]
-margin_left = 120.0
-margin_right = 380.0
-margin_bottom = 80.0
+margin_left = 126.0
+margin_right = 374.0
+margin_bottom = 76.0
 
 [node name="Star1" type="TextureRect" parent="VBoxContainer/CenterContainer/HBoxContainer"]
-margin_right = 84.0
-margin_bottom = 80.0
+margin_right = 80.0
+margin_bottom = 76.0
 texture = ExtResource( 2 )
 
 [node name="Star2" type="TextureRect" parent="VBoxContainer/CenterContainer/HBoxContainer"]
-margin_left = 88.0
-margin_right = 172.0
-margin_bottom = 80.0
+margin_left = 84.0
+margin_right = 164.0
+margin_bottom = 76.0
 texture = ExtResource( 2 )
 
 [node name="Star3" type="TextureRect" parent="VBoxContainer/CenterContainer/HBoxContainer"]
-margin_left = 176.0
-margin_right = 260.0
-margin_bottom = 80.0
+margin_left = 168.0
+margin_right = 248.0
+margin_bottom = 76.0
 texture = ExtResource( 2 )
 
 [node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
-margin_top = 308.0
+margin_top = 282.0
 margin_right = 500.0
-margin_bottom = 408.0
+margin_bottom = 382.0
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CenterContainer2"]
 margin_left = 160.0
@@ -91,12 +91,18 @@ columns = 2
 [node name="Restart" type="TextureButton" parent="VBoxContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 margin_right = 80.0
 margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
 texture_normal = ExtResource( 6 )
+expand = true
+stretch_mode = 4
 
 [node name="NextLevel" type="TextureButton" parent="VBoxContainer/CenterContainer2/MarginContainer/HBoxContainer"]
 margin_left = 100.0
 margin_right = 180.0
 margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
 texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 4
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/MarginContainer/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/MarginContainer/HBoxContainer/NextLevel" to="." method="_on_NextLevel_pressed"]
