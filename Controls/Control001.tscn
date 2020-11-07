@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Art/RotateLeft.svg" type="Texture" id=1]
 [ext_resource path="res://Art/RotateRight.svg" type="Texture" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://Art/AddForce.svg" type="Texture" id=4]
 [ext_resource path="res://Controls/Control001.gd" type="Script" id=5]
 [ext_resource path="res://Art/Hit.svg" type="Texture" id=6]
-[ext_resource path="res://Art/snowflake.svg" type="Texture" id=7]
+[ext_resource path="res://Art/flag.svg" type="Texture" id=7]
+[ext_resource path="res://Art/Panel001.png" type="Texture" id=8]
 
 [node name="Control001" type="Control"]
 anchor_right = 1.0
@@ -18,16 +19,39 @@ __meta__ = {
 
 [node name="LeftButtons" type="Control" parent="."]
 margin_left = 50.0
-margin_top = 400.0
-margin_right = 200.0
+margin_top = 360.0
+margin_right = 240.0
 margin_bottom = 550.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="LeftButtons"]
+[node name="TextureRect" type="TextureRect" parent="LeftButtons"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="LeftButtons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="LeftButtons/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 180.0
+margin_bottom = 180.0
 size_flags_horizontal = 13
 size_flags_vertical = 13
 custom_constants/vseparation = 10
@@ -37,90 +61,113 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RotateLeft" type="TextureButton" parent="LeftButtons/GridContainer"]
-margin_right = 70.0
-margin_bottom = 69.0
+[node name="RotateLeft" type="TextureButton" parent="LeftButtons/MarginContainer/GridContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 1 )
 expand = true
 
-[node name="RotateRight" type="TextureButton" parent="LeftButtons/GridContainer"]
-margin_left = 80.0
-margin_right = 150.0
-margin_bottom = 69.0
+[node name="RotateRight" type="TextureButton" parent="LeftButtons/MarginContainer/GridContainer"]
+margin_left = 90.0
+margin_right = 170.0
+margin_bottom = 80.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
 expand = true
 
-[node name="DecreaseForce" type="TextureButton" parent="LeftButtons/GridContainer"]
-margin_top = 79.0
-margin_right = 70.0
-margin_bottom = 148.0
+[node name="DecreaseForce" type="TextureButton" parent="LeftButtons/MarginContainer/GridContainer"]
+margin_top = 90.0
+margin_right = 80.0
+margin_bottom = 170.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 3 )
 expand = true
 
-[node name="IncreaseForce" type="TextureButton" parent="LeftButtons/GridContainer"]
-margin_left = 80.0
-margin_top = 79.0
-margin_right = 150.0
-margin_bottom = 148.0
+[node name="IncreaseForce" type="TextureButton" parent="LeftButtons/MarginContainer/GridContainer"]
+margin_left = 90.0
+margin_top = 90.0
+margin_right = 170.0
+margin_bottom = 170.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 4 )
 expand = true
 
 [node name="RightButtons" type="Control" parent="."]
-margin_left = 824.0
-margin_top = 400.0
+margin_left = 784.0
+margin_top = 360.0
 margin_right = 974.0
 margin_bottom = 550.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GridContainer" type="GridContainer" parent="RightButtons"]
+[node name="TextureRect" type="TextureRect" parent="RightButtons"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="RightButtons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="RightButtons/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 180.0
+margin_bottom = 180.0
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Empty" type="TextureButton" parent="RightButtons/GridContainer"]
-margin_right = 73.0
-margin_bottom = 72.0
+[node name="Empty" type="TextureButton" parent="RightButtons/MarginContainer/GridContainer"]
+margin_right = 83.0
+margin_bottom = 83.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand = true
 
-[node name="Hit" type="TextureButton" parent="RightButtons/GridContainer"]
-margin_left = 77.0
-margin_right = 150.0
-margin_bottom = 72.0
+[node name="Hit" type="TextureButton" parent="RightButtons/MarginContainer/GridContainer"]
+margin_left = 87.0
+margin_right = 170.0
+margin_bottom = 83.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 6 )
 expand = true
 
-[node name="Restart" type="TextureButton" parent="RightButtons/GridContainer"]
-margin_top = 76.0
-margin_right = 73.0
-margin_bottom = 148.0
+[node name="Restart" type="TextureButton" parent="RightButtons/MarginContainer/GridContainer"]
+margin_top = 87.0
+margin_right = 83.0
+margin_bottom = 170.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture_normal = ExtResource( 7 )
 expand = true
-[connection signal="button_down" from="LeftButtons/GridContainer/RotateLeft" to="." method="_on_RotateLeft_button_down"]
-[connection signal="button_up" from="LeftButtons/GridContainer/RotateLeft" to="." method="_on_RotateLeft_button_up"]
-[connection signal="button_down" from="LeftButtons/GridContainer/RotateRight" to="." method="_on_RotateRight_button_down"]
-[connection signal="button_up" from="LeftButtons/GridContainer/RotateRight" to="." method="_on_RotateRight_button_up"]
-[connection signal="button_down" from="LeftButtons/GridContainer/DecreaseForce" to="." method="_on_DecreaseForce_button_down"]
-[connection signal="button_up" from="LeftButtons/GridContainer/DecreaseForce" to="." method="_on_DecreaseForce_button_up"]
-[connection signal="button_down" from="LeftButtons/GridContainer/IncreaseForce" to="." method="_on_IncreaseForce_button_down"]
-[connection signal="button_up" from="LeftButtons/GridContainer/IncreaseForce" to="." method="_on_IncreaseForce_button_up"]
-[connection signal="pressed" from="RightButtons/GridContainer/Hit" to="." method="_on_Hit_pressed"]
-[connection signal="pressed" from="RightButtons/GridContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="button_down" from="LeftButtons/MarginContainer/GridContainer/RotateLeft" to="." method="_on_RotateLeft_button_down"]
+[connection signal="button_up" from="LeftButtons/MarginContainer/GridContainer/RotateLeft" to="." method="_on_RotateLeft_button_up"]
+[connection signal="button_down" from="LeftButtons/MarginContainer/GridContainer/RotateRight" to="." method="_on_RotateRight_button_down"]
+[connection signal="button_up" from="LeftButtons/MarginContainer/GridContainer/RotateRight" to="." method="_on_RotateRight_button_up"]
+[connection signal="button_down" from="LeftButtons/MarginContainer/GridContainer/DecreaseForce" to="." method="_on_DecreaseForce_button_down"]
+[connection signal="button_up" from="LeftButtons/MarginContainer/GridContainer/DecreaseForce" to="." method="_on_DecreaseForce_button_up"]
+[connection signal="button_down" from="LeftButtons/MarginContainer/GridContainer/IncreaseForce" to="." method="_on_IncreaseForce_button_down"]
+[connection signal="button_up" from="LeftButtons/MarginContainer/GridContainer/IncreaseForce" to="." method="_on_IncreaseForce_button_up"]
+[connection signal="pressed" from="RightButtons/MarginContainer/GridContainer/Hit" to="." method="_on_Hit_pressed"]
+[connection signal="pressed" from="RightButtons/MarginContainer/GridContainer/Restart" to="." method="_on_Restart_pressed"]

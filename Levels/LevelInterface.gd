@@ -13,13 +13,19 @@ var start_point: Position2D
 var indicator: Node2D
 var camera: Camera2D
 var camera_initial_position: Vector2
+var camera_target: Vector2
 var hitted: bool = false
 var should_reset: bool = false
+var win_screen
 
 var _mouse_captured = false
 var camera_rectangle: Rect2
 
 func _ready():
+	win_screen = find_node('WinScreen')
+	win_screen.connect("restart", self, "restart")
+	win_screen.connect("next_level", GameManager, "start_level")
+	GameManager.on_win_screen = false
 	flag = get_node(flag_path)
 	ball = get_node(ball_path)
 	start_point = get_node(start_point_path)
@@ -29,6 +35,7 @@ func _ready():
 	indicator.connect('hit', self, "on_hit")
 	ball.connect('sleeping_state_changed', self, 'ball_sleeping_state_changed')
 	camera_initial_position = camera.position
+	camera_target = camera_initial_position
 	
 	indicator.connect('hit', self, "on_hit")
 	ball.connect('sleeping_state_changed', self, 'ball_sleeping_state_changed')
@@ -42,8 +49,11 @@ func _process(delta):
 #		camera.position = ball.position
 
 func _physics_process(delta):
+	if camera_target:
+		camera.position = (camera_target - camera.position) * 0.1 + camera.position
 	if hitted:
-		camera.position = ball.position
+		camera_target = ball.position
+		
 
 func _unhandled_input(event):
 	if event.is_action_pressed("mouse_click"):
@@ -52,19 +62,25 @@ func _unhandled_input(event):
 		_mouse_captured = false
 		
 	if _mouse_captured && event is InputEventMouseMotion:
-		if  camera_rectangle.has_point(camera.position - event.relative):
-			camera.position -= event.relative
-		
-	if Input.is_action_just_pressed("reset"):
-		reset()
+		if  camera_rectangle.has_point(camera_target - event.relative):
+			if not hitted:
+				camera_target -= event.relative
+	
+	if not GameManager.on_win_screen:
+		if Input.is_action_just_pressed("reset"):
+			reset()
 		
 func reset():
-	camera.position = camera_initial_position
+#	camera.position = camera_initial_position
+	camera_target = camera_initial_position
 	ball.move(start_point.position)
 	indicator.show()
 	indicator.enabled = true
 	should_reset = false
 	hitted = false
+	
+func restart():
+	get_tree().reload_current_scene()
 
 func ball_sleeping_state_changed():
 	if hitted and ball.sleeping:
@@ -72,9 +88,10 @@ func ball_sleeping_state_changed():
 		if flag.points == 0:
 			reset()
 		else:
+			GameManager.on_win_screen = true
+			indicator.enabled = false
 			should_reset = false
 			hitted = false
-			var win_screen = find_node('WinScreen')
 			win_screen.show()
 			win_screen.stars_to_show = flag.points
-			get_tree().create_timer(5).connect("timeout", GameManager, "start_level")
+#			get_tree().create_timer(5).connect("timeout", GameManager, "start_level")

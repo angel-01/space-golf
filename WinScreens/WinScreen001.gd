@@ -1,10 +1,7 @@
 extends CenterContainer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+signal next_level
+signal restart
 var stars_to_show: int = 0 setget set_stars_to_show
 
 func set_stars_to_show(val):
@@ -32,3 +29,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_NextLevel_pressed():
+	emit_signal("next_level")
+
+
+func _on_Restart_pressed():
+	emit_signal("restart")

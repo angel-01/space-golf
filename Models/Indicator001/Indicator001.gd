@@ -1,12 +1,12 @@
 extends Node2D
 
 export(NodePath) var ball_path
+export(int) var MAX_FORCE = 200
 
 signal hit
 
 var RADS_PER_SECOND = 0.01745 * 50  # 0.01745 ~ 1 deg
 var FORCE_PER_SECOND = 50
-var MAX_FORCE = 200
 var force = MAX_FORCE / 2
 var ball: RigidBody2D
 var initial_scale: Vector2

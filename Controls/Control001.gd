@@ -5,15 +5,24 @@ extends Control
 # var a = 2
 # var b = "text"
 
+var show = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if OS.get_name() != 'Android':
+		show = false
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _physics_process(delta):
+	if not GameManager.on_win_screen and show:
+		show()
+	else:
+		hide()
 
 func _on_RotateLeft_button_down():
 	Input.action_press("ui_up")
