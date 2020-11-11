@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "FlagInterface",
+"language": "GDScript",
+"path": "res://Models/FlagInterface.gd"
+}, {
 "base": "Node2D",
 "class": "LevelInterface",
 "language": "GDScript",
 "path": "res://Levels/LevelInterface.gd"
 } ]
 _global_script_class_icons={
+"FlagInterface": "",
 "LevelInterface": ""
 }
 

@@ -10,7 +10,7 @@ bounce = 0.5
 radius = 7.87214
 
 [node name="GolfBall001" type="RigidBody2D" groups=[
-"ball",
+"balls",
 ]]
 z_index = 11
 physics_material_override = SubResource( 1 )

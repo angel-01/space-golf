@@ -1,8 +1,10 @@
 extends Node
 
 # TODO:
+# completar la grieta. hacer que si la bola la toca se reinicie el level. que si otra cosa la toca, lo desbarate. que tenga gravedad fuerte a su centro
+# buscar mas imagenes de fondo
+# hacer objetos para colissionar
 # hacerle un icono al juego (por alguna razon se ve bien en desktop pero no en android)
-# nivel multi bandera. hay que ganarlas todas y se ira moviendo el punto de partida a la ultima ganada
 # planetas con huecos pasables???
 
 var current_level = 0

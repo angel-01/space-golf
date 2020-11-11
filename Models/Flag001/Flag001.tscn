@@ -15,7 +15,10 @@ radius = 89.3826
 [sub_resource type="CircleShape2D" id=3]
 radius = 149.717
 
-[node name="Flag001" type="Node2D"]
+[node name="Flag001" type="Node2D" groups=[
+"flags",
+"winner_flags",
+]]
 script = ExtResource( 5 )
 
 [node name="Flag001" type="Sprite" parent="."]

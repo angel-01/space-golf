@@ -7,6 +7,7 @@ signal restart
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	show()
 	$Background.hide()
 	$Menu.hide()
 	$OptionsButton.show()

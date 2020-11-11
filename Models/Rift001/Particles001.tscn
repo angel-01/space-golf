@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="Particle001" type="CPUParticles2D"]
+amount = 50
+lifetime = 1.5
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 200 )
+spread = 10.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 100.0

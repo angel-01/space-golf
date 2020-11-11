@@ -17,30 +17,6 @@ func _ready():
 #	pass
 
 
-func _on_Close_body_entered(body:Node):
-	if body.is_in_group('balls'):
-		print('entre en "cerca"')
-		points += 1
-
-
-func _on_Close_body_exited(body):
-	if body.is_in_group('balls'):
-		print('sali de "cerca"')
-		points -= 1
-
-
-func _on_Middle_body_entered(body):
-	if body.is_in_group('balls'):
-		print('entre en "medio"')
-		points += 1
-
-
-func _on_Middle_body_exited(body):
-	if body.is_in_group('balls'):
-		print('sali de "medio"')
-		points -= 1
-
-
 func _on_Far_body_entered(body):
 	if body.is_in_group('balls'):
 		print('entre en "lejos"')

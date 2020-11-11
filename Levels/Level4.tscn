@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Models/GolfBall001/GolfBall001.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Models/Planet001/Planet001.tscn" type="PackedScene" id=2]
@@ -7,9 +7,11 @@
 [ext_resource path="res://Levels/Level4.gd" type="Script" id=5]
 [ext_resource path="res://WinScreens/WinScreen001.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Art/pexels-miriam-espacio-110854.jpg" type="Texture" id=7]
+[ext_resource path="res://Models/Flag002/Flag002.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Controls/Control001.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Models/Asteroid001/Asteroid001.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Menus/Options.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Models/Rift001/Rift001.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1349.11, 1127.59 )
@@ -21,8 +23,8 @@ indicator_path = NodePath("Indicator001")
 camera_path = NodePath("CenteredCamera")
 
 [node name="BallLimits" type="Area2D" parent="."]
-visible = false
-position = Vector2( 581.343, 113.871 )
+position = Vector2( 920.327, 165.504 )
+z_index = -10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallLimits"]
 shape = SubResource( 1 )
@@ -37,74 +39,41 @@ scale = Vector2( 0.266364, 0.266364 )
 z_index = -10
 texture = ExtResource( 7 )
 
-[node name="Flag001" parent="." instance=ExtResource( 3 )]
-position = Vector2( 943.321, 30.4253 )
-rotation = -2.85619
-scale = Vector2( 0.374777, 0.374777 )
-
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-position = Vector2( 364.756, 437.806 )
+position = Vector2( 306.756, 503.806 )
+linear_rotation = 0.001
 
 [node name="Planet2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 985.461, -165.235 )
 
+[node name="Flag002" parent="Planet2" instance=ExtResource( 8 )]
+position = Vector2( 4.01538, 198.223 )
+rotation = -3.12416
+scale = Vector2( 0.375, 0.375 )
+z_index = -1
+
+[node name="Planet3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1590.91, 463.756 )
+
+[node name="Flag001" parent="Planet3" instance=ExtResource( 3 )]
+position = Vector2( -25.78, 198.036 )
+rotation = -2.98451
+scale = Vector2( 0.374777, 0.374777 )
+z_index = -1
+
 [node name="GolfBall001" parent="." instance=ExtResource( 1 )]
-position = Vector2( 225.546, 285.78 )
+position = Vector2( 513.379, 507.106 )
 
 [node name="Indicator001" parent="." instance=ExtResource( 4 )]
-position = Vector2( 225.546, 285.78 )
+position = Vector2( 513.379, 507.106 )
 rotation = 0.601036
 scale = Vector2( 0.2, 0.2 )
 z_index = -1
-ball_path = NodePath("../../Level4/GolfBall001")
+ball_path = NodePath("../GolfBall001")
 MAX_FORCE = 300
 
 [node name="StartPoint" type="Position2D" parent="."]
-position = Vector2( 225.546, 285.78 )
-
-[node name="Asteroid" parent="." instance=ExtResource( 10 )]
-position = Vector2( 364, 67.544 )
-linear_velocity = Vector2( 160, 0 )
-angular_velocity = 1.0
-
-[node name="Asteroid2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 364.756, 807 )
-linear_velocity = Vector2( -160, 0 )
-angular_velocity = 1.0
-
-[node name="Asteroid3" parent="." instance=ExtResource( 10 )]
-position = Vector2( 733, 450.544 )
-rotation = 1.57079
-linear_velocity = Vector2( 0, 160 )
-angular_velocity = 1.0
-
-[node name="Asteroid4" parent="." instance=ExtResource( 10 )]
-position = Vector2( -3.24399, 447 )
-rotation = 1.57079
-linear_velocity = Vector2( 0, -160 )
-angular_velocity = 1.0
-
-[node name="Asteroid5" parent="." instance=ExtResource( 10 )]
-position = Vector2( 616.397, 186.599 )
-linear_velocity = Vector2( 130, 130 )
-angular_velocity = 1.0
-
-[node name="Asteroid6" parent="." instance=ExtResource( 10 )]
-position = Vector2( 628.343, 666.852 )
-linear_velocity = Vector2( -130, 130 )
-angular_velocity = 1.0
-
-[node name="Asteroid7" parent="." instance=ExtResource( 10 )]
-position = Vector2( 113, 662.544 )
-rotation = 1.57079
-linear_velocity = Vector2( -130, -130 )
-angular_velocity = 1.0
-
-[node name="Asteroid8" parent="." instance=ExtResource( 10 )]
-position = Vector2( 118.756, 175 )
-rotation = 1.57079
-linear_velocity = Vector2( 130, -130 )
-angular_velocity = 1.0
+position = Vector2( 513.546, 506.543 )
 
 [node name="CenteredCamera" type="Camera2D" parent="."]
 position = Vector2( 512, 300 )
@@ -131,4 +100,11 @@ margin_left = -512.0
 margin_top = -300.0
 margin_right = -512.0
 margin_bottom = -300.0
+
+[node name="Rift001" parent="." instance=ExtResource( 12 )]
+position = Vector2( 975.432, 531.417 )
+
+[node name="Asteroid001" parent="." instance=ExtResource( 10 )]
+position = Vector2( 586.913, 124.361 )
+linear_velocity = Vector2( 80, 90 )
 [connection signal="body_exited" from="BallLimits" to="." method="_on_Area2D_body_exited"]
