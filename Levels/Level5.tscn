@@ -43,14 +43,13 @@ shape = SubResource( 1 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( -1098.67, -928.772 )
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-margin_left = -623.144
-margin_top = -506.602
-margin_right = 4376.86
-margin_bottom = 4493.4
+margin_left = -1731.48
+margin_top = -1819.49
+margin_right = 3268.52
+margin_bottom = 3180.52
 mouse_filter = 2
 texture = SubResource( 2 )
 expand = true
@@ -96,8 +95,10 @@ visible = false
 
 [node name="WinScreen" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 6 )]
 visible = false
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
 
 [node name="Control001" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 9 )]
 visible = false

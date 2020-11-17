@@ -1,8 +1,9 @@
 extends Node
 
 # TODO:
-# hacer indicador de por donde pasaria la pelota. que solo colisione con objetos q no se mueven
 # ponerle el zoom a todos los niveles
+# modificar todos los planetas para que colisionen con la ghost ball
+# convertir los controles a pixel art
 # poner controles de zoom en android
 # hacer objetos para colissionar
 # hacerle un icono al juego (por alguna razon se ve bien en desktop pero no en android)

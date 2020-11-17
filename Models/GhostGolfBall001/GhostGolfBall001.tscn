@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Art/GolfBall002.png" type="Texture" id=1]
-[ext_resource path="res://Models/GolfBall001/GolfBall001.gd" type="Script" id=2]
+[ext_resource path="res://Models/GhostGolfBall001/GhostGolfBall001.gd" type="Script" id=2]
 [ext_resource path="res://Art/GolfBall002-pix.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -11,9 +11,11 @@ bounce = 0.5
 radius = 7.87214
 
 [node name="GolfBall001" type="RigidBody2D" groups=[
-"balls",
+"ghost_balls",
 ]]
 z_index = 11
+collision_layer = 524288
+collision_mask = 0
 physics_material_override = SubResource( 1 )
 continuous_cd = 1
 script = ExtResource( 2 )

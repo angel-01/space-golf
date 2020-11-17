@@ -29,7 +29,8 @@ texture = ExtResource( 2 )
 space_override = 1
 gravity_point = true
 gravity_vec = Vector2( 0, 0 )
-linear_damp = 0.0
+collision_layer = 524289
+collision_mask = 524289
 __meta__ = {
 "_edit_group_": true
 }
@@ -38,6 +39,8 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 524289
+collision_mask = 524289
 physics_material_override = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
