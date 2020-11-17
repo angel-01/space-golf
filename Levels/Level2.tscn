@@ -58,6 +58,7 @@ z_index = 20
 current = true
 
 [node name="Options" parent="CenteredCamera" instance=ExtResource( 10 )]
+visible = false
 margin_left = -512.0
 margin_top = -300.0
 margin_right = 512.0
@@ -71,6 +72,7 @@ margin_right = 512.0
 margin_bottom = 300.0
 
 [node name="Control001" parent="CenteredCamera" instance=ExtResource( 9 )]
+visible = false
 margin_left = -512.0
 margin_top = -300.0
 margin_right = -512.0

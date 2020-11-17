@@ -4,7 +4,7 @@
 [ext_resource path="res://Art/GrayCircle001.png" type="Texture" id=2]
 [ext_resource path="res://Models/Flag002/Flag002.gd" type="Script" id=5]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 149.717
 
 [node name="Flag002" type="Node2D" groups=[
@@ -20,7 +20,7 @@ texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Far"]
 rotation = -0.00116701
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="RedCircle001" type="Sprite" parent="."]
 scale = Vector2( 0.571156, 0.571156 )

@@ -1,8 +1,9 @@
 extends Node
 
 # TODO:
-# completar la grieta. hacer que si la bola la toca se reinicie el level. que si otra cosa la toca, lo desbarate. que tenga gravedad fuerte a su centro
-# buscar mas imagenes de fondo
+# hacer indicador de por donde pasaria la pelota. que solo colisione con objetos q no se mueven
+# ponerle el zoom a todos los niveles
+# poner controles de zoom en android
 # hacer objetos para colissionar
 # hacerle un icono al juego (por alguna razon se ve bien en desktop pero no en android)
 # planetas con huecos pasables???
