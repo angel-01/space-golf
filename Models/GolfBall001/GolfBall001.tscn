@@ -27,5 +27,5 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="GolfBall002-pix" type="Sprite" parent="."]
-scale = Vector2( 0.08, 0.08 )
+scale = Vector2( 0.232869, 0.232869 )
 texture = ExtResource( 3 )

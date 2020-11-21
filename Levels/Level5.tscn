@@ -1,13 +1,15 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Models/GolfBall001/GolfBall001.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Models/Planet003/Planet003.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Models/Planet004/Planet004.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Models/Flag001/Flag001.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Models/Indicator001/Indicator001.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/Level5.gd" type="Script" id=5]
 [ext_resource path="res://WinScreens/WinScreen001.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art/pexels-alex-andrews-816608-pix.jpg" type="Texture" id=7]
 [ext_resource path="res://Models/Planet002/Planet001.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Controls/Control001.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Models/Moon001/Moon.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Menus/Options.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Art/AnimatedBackground/space1f3.png" type="Texture" id=12]
 [ext_resource path="res://Art/AnimatedBackground/space1f1.png" type="Texture" id=13]
@@ -41,11 +43,13 @@ position = Vector2( 779.781, -124.135 )
 shape = SubResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
 margin_left = -1731.48
 margin_top = -1819.49
 margin_right = 3268.52
@@ -58,22 +62,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Flag001" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1528.81, -580.515 )
-rotation = -2.85619
-scale = Vector2( 0.374777, 0.374777 )
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 2.99689, -2.99655 )
+scale = Vector2( 0.349068, 0.349068 )
+texture = ExtResource( 7 )
 
 [node name="Planet3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 364.756, 437.806 )
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1570.95, -776.175 )
+position = Vector2( 1237.24, -509.207 )
+
+[node name="Flag001" parent="Planet" instance=ExtResource( 3 )]
+position = Vector2( -106.323, 169.231 )
+rotation = -2.56402
+scale = Vector2( 0.374777, 0.374777 )
+z_index = -1
+
+[node name="Moon" parent="." instance=ExtResource( 10 )]
+position = Vector2( 804.389, -41.3619 )
 
 [node name="GolfBall001" parent="." instance=ExtResource( 1 )]
-position = Vector2( 225.546, 285.78 )
+position = Vector2( 497.853, 269.762 )
 
 [node name="Indicator001" parent="." instance=ExtResource( 4 )]
-position = Vector2( 225.546, 285.78 )
+position = Vector2( 497.853, 269.762 )
 rotation = 0.601036
 scale = Vector2( 0.2, 0.2 )
 z_index = -1
@@ -81,7 +94,7 @@ ball_path = NodePath("../GolfBall001")
 MAX_FORCE = 300
 
 [node name="StartPoint" type="Position2D" parent="."]
-position = Vector2( 225.546, 285.78 )
+position = Vector2( 497.853, 269.762 )
 
 [node name="CenteredCamera" type="Camera2D" parent="."]
 position = Vector2( 512, 300 )

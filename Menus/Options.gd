@@ -34,3 +34,9 @@ func _on_MainMenu_pressed():
 
 func _on_Restart_pressed():
 	get_tree().reload_current_scene()
+
+
+func _on_Resume_pressed():
+	$Background.hide()
+	$Menu.hide()
+	$OptionsButton.show()

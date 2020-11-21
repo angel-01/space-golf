@@ -1,15 +1,32 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Models/GolfBall001/GolfBall001.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Models/Planet001/Planet001.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Models/Planet004/Planet004.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Models/Flag001/Flag001.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Models/Indicator001/Indicator001.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=5]
 [ext_resource path="res://WinScreens/WinScreen001.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Art/pexels-jaymantri-5439.jpg" type="Texture" id=7]
+[ext_resource path="res://Art/AnimatedBackground/space2f2.png" type="Texture" id=8]
 [ext_resource path="res://Controls/Control001.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Menus/Options.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Art/Tutorial.png" type="Texture" id=11]
+[ext_resource path="res://Art/AnimatedBackground/space2f3.png" type="Texture" id=12]
+[ext_resource path="res://Art/AnimatedBackground/space2f4.png" type="Texture" id=13]
+[ext_resource path="res://Art/AnimatedBackground/space2f1.png" type="Texture" id=14]
+[ext_resource path="res://Art/pexels-jaymantri-5439-pix.jpg" type="Texture" id=15]
+
+[sub_resource type="AnimatedTexture" id=1]
+flags = 4
+frames = 4
+fps = 2.0
+frame_0/texture = ExtResource( 14 )
+frame_1/texture = ExtResource( 8 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 12 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 13 )
+frame_3/delay_sec = 0.0
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 5 )
@@ -18,21 +35,44 @@ indicator_path = NodePath("Indicator001")
 camera_path = NodePath("CenteredCamera")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2( 0.740281, 0.740281 )
+visible = false
+position = Vector2( 14.7025, 20.6992 )
+scale = Vector2( 0.646546, 0.646546 )
 z_index = -10
 texture = ExtResource( 7 )
+
+[node name="Background2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 14.7025, 20.6992 )
+scale = Vector2( 0.646546, 0.646546 )
+z_index = -10
+texture = ExtResource( 15 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
+margin_left = -1731.48
+margin_top = -1819.49
+margin_right = 3268.52
+margin_bottom = 3180.52
+mouse_filter = 2
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Flag001" parent="." instance=ExtResource( 3 )]
 position = Vector2( 673.857, 189.027 )
 rotation = 1.00138
 scale = Vector2( 0.374777, 0.374777 )
 
-[node name="Planet" parent="." instance=ExtResource( 2 )]
+[node name="Planet2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 510.202, 301.609 )
 
 [node name="GolfBall001" parent="." instance=ExtResource( 1 )]
@@ -53,26 +93,20 @@ position = Vector2( 512, 300 )
 z_index = 20
 current = true
 
-[node name="Options" parent="CenteredCamera" instance=ExtResource( 10 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="CenteredCamera"]
+
+[node name="Options" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 10 )]
+visible = false
+
+[node name="WinScreen" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 6 )]
 visible = false
 margin_left = -512.0
 margin_top = -300.0
 margin_right = 512.0
 margin_bottom = 300.0
 
-[node name="WinScreen" parent="CenteredCamera" instance=ExtResource( 6 )]
+[node name="Control001" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 9 )]
 visible = false
-margin_left = -512.0
-margin_top = -300.0
-margin_right = 512.0
-margin_bottom = 300.0
-
-[node name="Control001" parent="CenteredCamera" instance=ExtResource( 9 )]
-visible = false
-margin_left = -512.0
-margin_top = -300.0
-margin_right = -512.0
-margin_bottom = -300.0
 
 [node name="Tutorial" type="Sprite" parent="."]
 position = Vector2( 902.662, 488.412 )

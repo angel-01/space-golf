@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Art/Flag002.png" type="Texture" id=1]
 [ext_resource path="res://Art/GrayCircle001.png" type="Texture" id=2]
+[ext_resource path="res://Art/Flag002-pix.png" type="Texture" id=3]
 [ext_resource path="res://Models/Flag002/Flag002.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -12,7 +13,13 @@ radius = 149.717
 ]]
 script = ExtResource( 5 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -12.0742, -151.198 )
+scale = Vector2( 0.526769, 0.526769 )
+texture = ExtResource( 3 )
+
 [node name="Flag001" type="Sprite" parent="."]
+visible = false
 position = Vector2( 47.304, -229 )
 texture = ExtResource( 1 )
 
@@ -23,6 +30,7 @@ rotation = -0.00116701
 shape = SubResource( 1 )
 
 [node name="RedCircle001" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 0.571156, 0.571156 )
 texture = ExtResource( 2 )
 [connection signal="body_entered" from="Far" to="." method="_on_Far_body_entered"]

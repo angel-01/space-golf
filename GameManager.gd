@@ -1,8 +1,6 @@
 extends Node
 
 # TODO:
-# ponerle el zoom a todos los niveles
-# modificar todos los planetas para que colisionen con la ghost ball
 # convertir los controles a pixel art
 # poner controles de zoom en android
 # hacer objetos para colissionar
