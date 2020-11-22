@@ -13,7 +13,7 @@ var initial_scale: Vector2
 var enabled = true
 var ghost_ball_interval = 1
 var ghost_ball_interval_counter = 0.0
-var is_ghost_ball_active = true
+var is_ghost_ball_active = false
 var ghost_ball = preload("res://Models/GhostGolfBall001/GhostGolfBall001.tscn")
 # Declare member variables here. Examples:
 # var a = 2

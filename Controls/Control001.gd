@@ -75,3 +75,16 @@ func _on_Hit_pressed():
 	action.pressed = false
 	action.action = 'hit'
 	Input.parse_input_event(action)
+
+
+func _on_ZoomIn_pressed():
+	get_tree().current_scene.camera_zoom_level -= 1
+	get_tree().current_scene.camera_zoom_level = clamp(get_tree().current_scene.camera_zoom_level, 1, get_tree().current_scene.CAMERA_MAX_ZOOM_LEVEL)
+	get_tree().current_scene.camera.zoom = get_tree().current_scene.camera_initial_zoom * get_tree().current_scene.camera_zoom_level
+
+
+func _on_ZoomOut_pressed():
+	get_tree().current_scene.camera_zoom_level += 1
+	get_tree().current_scene.camera_zoom_level = clamp(get_tree().current_scene.camera_zoom_level, 1, get_tree().current_scene.CAMERA_MAX_ZOOM_LEVEL)
+	get_tree().current_scene.camera.zoom = get_tree().current_scene.camera_initial_zoom * get_tree().current_scene.camera_zoom_level
+
