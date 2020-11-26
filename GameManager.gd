@@ -8,6 +8,7 @@ extends Node
 # convertir los controles a pixel art
 # probar controles de zoom en android
 # planetas con huecos pasables???
+# el boton de opciones no funciona en android
 
 var current_level = 0
 var levels = [

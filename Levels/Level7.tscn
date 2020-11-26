@@ -1,0 +1,220 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Models/GolfBall001/GolfBall001.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/Planet009/Planet009.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Models/Flag001/Flag001.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Models/Indicator001/Indicator001.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level4.gd" type="Script" id=5]
+[ext_resource path="res://WinScreens/WinScreen001.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art/pexels-miriam-espacio-110854.jpg" type="Texture" id=7]
+[ext_resource path="res://Models/Satelite001/Satelite.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Controls/Control001.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menus/Options.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Art/pexels-pixabay-2150-pix.jpg" type="Texture" id=13]
+[ext_resource path="res://Models/Planet010/Planet010.tscn" type="PackedScene" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1349.11, 1127.59 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Satelites"
+length = 16.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Satelite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8, 12.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 428.598, 39.685 ), Vector2( 428.598, 443.315 ), Vector2( 428.598, 39.685 ), Vector2( 428.598, 443.315 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Satelite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4, 8, 12.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 61.5408, 121.398, 61.5408, 121.398 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Satelite2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4, 8, 12.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 631.785, 452.409 ), Vector2( 631.785, 53.8245 ), Vector2( 631.785, 452.409 ), Vector2( 631.785, 53.8245 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Satelite2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4, 8, 12.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 106.024, 177.819, 106.024, 177.819 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Satelite3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 947.678, 60.3213 ), Vector2( 924.133, 253.727 ), Vector2( 935.906, 458.906 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Satelite3:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 18.088, -16.8215, -69.023 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Satelite4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1204.84, 466.696 ), Vector2( 1182.97, 268.244 ), Vector2( 1167.84, 26.0662 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Satelite4:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 33.4561, -28.4896, -90.0326 ]
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 5 )
+start_point_path = NodePath("StartPoint")
+indicator_path = NodePath("Indicator001")
+camera_path = NodePath("CenteredCamera")
+
+[node name="BallLimits" type="Area2D" parent="."]
+position = Vector2( 920.327, 165.504 )
+z_index = -10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallLimits"]
+shape = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
+scale = Vector2( 0.266364, 0.266364 )
+z_index = -10
+texture = ExtResource( 7 )
+
+[node name="Background2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 0.470851, 0.470851 )
+z_index = -10
+texture = ExtResource( 13 )
+
+[node name="Planet4" parent="." instance=ExtResource( 14 )]
+position = Vector2( 15.3317, 237.061 )
+
+[node name="Planet2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1753.33, 237.061 )
+rotation = 1.39768
+
+[node name="Flag001" parent="Planet2" instance=ExtResource( 3 )]
+position = Vector2( -25.7802, 198.036 )
+rotation = -2.98451
+scale = Vector2( 0.374777, 0.374777 )
+z_index = -1
+
+[node name="GolfBall001" parent="." instance=ExtResource( 1 )]
+position = Vector2( 221.955, 240.361 )
+
+[node name="Indicator001" parent="." instance=ExtResource( 4 )]
+position = Vector2( 221.955, 240.361 )
+rotation = 0.601036
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+ball_path = NodePath("../GolfBall001")
+MAX_FORCE = 300
+
+[node name="StartPoint" type="Position2D" parent="."]
+position = Vector2( 222.122, 239.798 )
+
+[node name="Satelite" parent="." instance=ExtResource( 8 )]
+position = Vector2( 428.598, 339.525 )
+rotation = 1.85016
+scale = Vector2( 0.325871, 0.325871 )
+
+[node name="Satelite2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 631.785, 156.318 )
+rotation = 2.78131
+scale = Vector2( 0.325871, 0.325871 )
+
+[node name="Satelite3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 943.852, 189.861 )
+rotation = -0.178426
+scale = Vector2( 0.325871, 0.325871 )
+
+[node name="Satelite4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1192.81, 323.491 )
+rotation = -0.116548
+scale = Vector2( 0.325871, 0.325871 )
+
+[node name="CenteredCamera" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+z_index = 20
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CenteredCamera"]
+
+[node name="Options" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 11 )]
+visible = false
+
+[node name="WinScreen" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 6 )]
+visible = false
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Control001" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 9 )]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Satelites"
+anims/Satelites = SubResource( 2 )
+[connection signal="body_exited" from="BallLimits" to="." method="_on_Area2D_body_exited"]

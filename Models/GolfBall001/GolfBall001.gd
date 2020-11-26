@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends BallInterface
 
 
 # Declare member variables here. Examples:
@@ -20,6 +20,7 @@ func stop():
 	pending_stop = true
 	
 func _integrate_forces(state):
+	._integrate_forces(state)
 	if pending_move:
 		state.transform = Transform2D(0, pending_move_vector)
 		state.linear_velocity = Vector2.ZERO

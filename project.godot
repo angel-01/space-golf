@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "BallInterface",
+"language": "GDScript",
+"path": "res://Models/BallInterface.gd"
+}, {
 "base": "Node2D",
 "class": "FlagInterface",
 "language": "GDScript",
@@ -18,10 +23,17 @@ _global_script_classes=[ {
 "class": "LevelInterface",
 "language": "GDScript",
 "path": "res://Levels/LevelInterface.gd"
+}, {
+"base": "Node2D",
+"class": "PlanetInterface",
+"language": "GDScript",
+"path": "res://Models/PlanetInterface.gd"
 } ]
 _global_script_class_icons={
+"BallInterface": "",
 "FlagInterface": "",
-"LevelInterface": ""
+"LevelInterface": "",
+"PlanetInterface": ""
 }
 
 [application]
@@ -55,6 +67,11 @@ reset={
 hit={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ghost_ball={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":96,"unicode":0,"echo":false,"script":null)
  ]
 }
 

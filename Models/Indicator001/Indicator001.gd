@@ -30,6 +30,9 @@ func _ready():
 func _process(delta):
 	position = ball.position
 	
+	if Input.is_action_just_pressed("ghost_ball"):
+		is_ghost_ball_active = !is_ghost_ball_active
+		
 	if Input.is_action_pressed("ui_down"):
 		rotate(RADS_PER_SECOND * delta)
 	

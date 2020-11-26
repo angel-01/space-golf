@@ -1,0 +1,333 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Models/GolfBall001/GolfBall001.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/Planet007/Planet007.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Models/Flag001/Flag001.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Models/Indicator001/Indicator001.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level8.gd" type="Script" id=5]
+[ext_resource path="res://WinScreens/WinScreen001.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art/pexels-philippe-donn-1169754.jpg" type="Texture" id=7]
+[ext_resource path="res://Art/pexels-philippe-donn-1169754-pix.jpg" type="Texture" id=8]
+[ext_resource path="res://Controls/Control001.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Models/Asteroid001/Asteroid001.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Menus/Options.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Models/Planet008/Planet008.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Models/Wormhole001/Wormhole.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Models/Wormhole002/Wormhole.tscn" type="PackedScene" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1478.78, 1554.01 )
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 5 )
+start_point_path = NodePath("StartPoint")
+indicator_path = NodePath("Indicator001")
+camera_path = NodePath("CenteredCamera")
+
+[node name="BallLimits" type="Area2D" parent="."]
+position = Vector2( 803.092, 353.6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallLimits"]
+shape = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
+scale = Vector2( 0.266364, 0.266364 )
+z_index = -10
+texture = ExtResource( 7 )
+
+[node name="Background2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 0.266364, 0.266364 )
+z_index = -10
+texture = ExtResource( 8 )
+
+[node name="Flag001" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1927.94, 272.785 )
+rotation = -4.85092
+scale = Vector2( 0.374777, 0.374777 )
+
+[node name="Flag002" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1718.64, 86.1088 )
+rotation = -6.34451
+scale = Vector2( 0.374777, 0.374777 )
+
+[node name="Flag003" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1728.54, 482.089 )
+rotation = -3.17353
+scale = Vector2( 0.374777, 0.374777 )
+
+[node name="Planet3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 48.5792, 333.535 )
+
+[node name="Planet" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1728.81, 282.122 )
+
+[node name="GolfBall001" parent="." instance=ExtResource( 1 )]
+position = Vector2( 225.546, 285.78 )
+
+[node name="Indicator001" parent="." instance=ExtResource( 4 )]
+position = Vector2( 225.546, 285.78 )
+rotation = 0.601036
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+ball_path = NodePath("../GolfBall001")
+MAX_FORCE = 300
+
+[node name="StartPoint" type="Position2D" parent="."]
+position = Vector2( 225.546, 285.78 )
+
+[node name="CenteredCamera" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+z_index = 20
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CenteredCamera"]
+
+[node name="Options" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 11 )]
+visible = false
+
+[node name="WinScreen" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 6 )]
+visible = false
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Control001" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 9 )]
+visible = false
+
+[node name="Asteroids" type="Node2D" parent="."]
+
+[node name="Asteroid" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 867.46, -65.3921 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid2" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 868.216, 674.064 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid3" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1236.46, 317.608 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid4" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 500.216, 314.064 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid5" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1119.86, 53.6629 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid6" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1131.8, 533.916 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid7" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 616.46, 529.608 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid8" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 622.216, 42.0639 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid9" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 989.083, -181.358 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid10" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 989.839, 558.098 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid11" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1358.08, 201.642 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid12" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 621.839, 198.098 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid13" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1241.48, -62.3026 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid14" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1253.43, 417.95 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid15" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 738.083, 413.642 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid16" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 743.839, -73.9016 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid17" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 751.495, 87.343 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid18" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 752.251, 826.799 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid19" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1120.49, 470.343 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid20" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 384.251, 466.799 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid21" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1003.89, 206.398 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid22" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1015.84, 686.651 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid23" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 500.495, 682.343 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid24" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 506.251, 194.799 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid25" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 873.117, 197.652 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid26" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 873.873, 937.108 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid27" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1242.12, 580.652 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid28" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 505.873, 577.108 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid29" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1125.51, 316.707 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid30" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1137.46, 796.96 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid31" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 622.117, 792.652 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid32" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 627.873, 305.108 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid33" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 892.916, 520.092 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid34" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 893.672, 1259.55 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid35" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1261.92, 903.092 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid36" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 525.672, 899.548 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid37" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1145.31, 639.147 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid38" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 1157.26, 1119.4 )
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid39" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 641.916, 1115.09 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Asteroid40" parent="Asteroids" instance=ExtResource( 10 )]
+position = Vector2( 647.672, 627.548 )
+rotation = 1.57079
+mass = 100.0
+angular_velocity = 1.0
+
+[node name="Wormhole" parent="." instance=ExtResource( 13 )]
+position = Vector2( 507.869, -678.276 )
+exit_wormhole_path = NodePath("../Wormhole2")
+
+[node name="Wormhole2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1200.93, 1453.95 )
+[connection signal="body_exited" from="BallLimits" to="." method="_on_Area2D_body_exited"]

@@ -1,0 +1,130 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Models/GolfBall001/GolfBall001.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/Planet004/Planet004.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Models/Flag001/Flag001.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Models/Indicator001/Indicator001.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level6.gd" type="Script" id=5]
+[ext_resource path="res://WinScreens/WinScreen001.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art/pexels-miriam-espacio-110854-pix.jpg" type="Texture" id=7]
+[ext_resource path="res://Models/Dust001/Dust001.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Controls/Control001.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Models/Satelite001/Satelite.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Menus/Options.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Art/AnimatedBackground/space1f3.png" type="Texture" id=12]
+[ext_resource path="res://Art/AnimatedBackground/space1f1.png" type="Texture" id=13]
+[ext_resource path="res://Art/AnimatedBackground/space1f2.png" type="Texture" id=14]
+[ext_resource path="res://Art/AnimatedBackground/space1f4.png" type="Texture" id=15]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1349.11, 1127.59 )
+
+[sub_resource type="AnimatedTexture" id=2]
+frames = 4
+fps = 2.0
+frame_0/texture = ExtResource( 13 )
+frame_1/texture = ExtResource( 14 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 12 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 15 )
+frame_3/delay_sec = 0.0
+
+[node name="Level6" type="Node2D"]
+script = ExtResource( 5 )
+start_point_path = NodePath("StartPoint")
+indicator_path = NodePath("Indicator001")
+camera_path = NodePath("CenteredCamera")
+
+[node name="BallLimits" type="Area2D" parent="."]
+position = Vector2( 779.781, -124.135 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallLimits"]
+shape = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+visible = false
+margin_left = -1731.48
+margin_top = -1819.49
+margin_right = 3268.52
+margin_bottom = 3180.52
+mouse_filter = 2
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 2.99689, -2.99655 )
+scale = Vector2( 0.519693, 0.519693 )
+texture = ExtResource( 7 )
+
+[node name="Dust001" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1139.86, -347.897 )
+scale = Vector2( 5.9075, 5.9075 )
+z_index = -10
+linear_damp = 0.015
+linear_rotation = 0.001
+
+[node name="Flag001" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1142.23, -280.579 )
+rotation = -2.56402
+scale = Vector2( 0.374777, 0.374777 )
+z_index = -1
+
+[node name="Satelite" parent="." instance=ExtResource( 10 )]
+position = Vector2( 903.892, -95.108 )
+rotation = 0.561468
+scale = Vector2( 0.346811, 0.346811 )
+
+[node name="Satelite2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 994.401, -615.538 )
+rotation = 0.323375
+scale = Vector2( 0.346811, 0.346811 )
+
+[node name="Planet" parent="." instance=ExtResource( 2 )]
+position = Vector2( 364.756, 437.806 )
+gravity = 150.0
+
+[node name="GolfBall001" parent="." instance=ExtResource( 1 )]
+position = Vector2( 497.853, 269.762 )
+
+[node name="Indicator001" parent="." instance=ExtResource( 4 )]
+position = Vector2( 497.853, 269.762 )
+rotation = 0.601036
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+ball_path = NodePath("../GolfBall001")
+MAX_FORCE = 300
+
+[node name="StartPoint" type="Position2D" parent="."]
+position = Vector2( 497.853, 269.762 )
+
+[node name="CenteredCamera" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+z_index = 20
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CenteredCamera"]
+
+[node name="Options" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 11 )]
+visible = false
+
+[node name="WinScreen" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 6 )]
+visible = false
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+
+[node name="Control001" parent="CenteredCamera/CanvasLayer" instance=ExtResource( 9 )]
+visible = false
+[connection signal="body_exited" from="BallLimits" to="." method="_on_Area2D_body_exited"]

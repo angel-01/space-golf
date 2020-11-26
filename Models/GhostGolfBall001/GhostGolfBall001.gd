@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends BallInterface
 
 export(int) var max_life_time = 10
 
