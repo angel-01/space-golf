@@ -3,11 +3,8 @@ extends Node
 # TODO:
 # hacer objetos para colissionar
 # limpiar imagenes no usadas
-# poner los niveles en el selector de nivel y actualizar foto
-# hacerle un icono al juego (por alguna razon se ve bien en desktop pero no en android)
 # convertir los controles a pixel art
 # probar controles de zoom en android
-# planetas con huecos pasables???
 # el boton de opciones no funciona en android
 
 var current_level = 0
@@ -31,6 +28,18 @@ var levels = [
 	{
 		'path': "res://Levels/Level5.tscn",
 		'image': "res://Art/Level5Image.png"
+	},
+	{
+		'path': "res://Levels/Level6.tscn",
+		'image': "res://Art/Level6Image.png"
+	},
+	{
+		'path': "res://Levels/Level7.tscn",
+		'image': "res://Art/Level7Image.png"
+	},
+	{
+		'path': "res://Levels/Level8.tscn",
+		'image': "res://Art/Level8Image.png"
 	},
 ]
 
